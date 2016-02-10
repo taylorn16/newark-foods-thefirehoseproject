@@ -53,3 +53,6 @@ gem 'sprockets', '2.11.0'
 
 # Bootswatch themes
 gem 'bootswatch-rails'
+
+# Pagination w/ Bootstrap Integration
+gem 'will_paginate-bootstrap'

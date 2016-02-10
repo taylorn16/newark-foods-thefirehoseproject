@@ -1,6 +1,7 @@
 <div class="container">
+
   <div class="row">
-    <div class="col-sm-10 col-sm-offset-1">
+    <div class="col-sm-8 col-xs-12">
       <% @places.each do |place| %>
       <div class="panel panel-default place-box">
         <div class="panel-heading"><h3><%= place.name %></h3></div>
@@ -10,6 +11,17 @@
         </div>
       </div>
       <% end %>
+
+      <%= will_paginate @places, renderer: BootstrapPagination::Rails %>
     </div>
+
+    <div class="col-sm-4 col-xs-12">
+      <h3>Find Your New Favorite Hometown Restaurant</h3>
+      <p>Use the user ratings and comments on here to pick a place for date night or for hamburger alcatra cupim pork loin boudin short ribs andouille pastrami flank. Short loin fatback pastrami drumstick venison boudin kielbasa doner pork loin biltong chicken ham ball tip ham hock rump.</p>
+    </div>
+  </div>
+
+  <div class="row">
+    
   </div>
 </div>
