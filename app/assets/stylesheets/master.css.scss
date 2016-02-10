@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto+Slab:400,300,700);
+
 body {
 	padding-top: 80px;
 	background: url('/assets/lightpaperfibers.png');
@@ -5,7 +7,15 @@ body {
 
 .navbar {
 	background: url('/assets/navy_blue.png');
-	box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2)
+	box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+
+	.navbar-brand {
+		color: #f47c3c;
+		font-family: 'Roboto Slab';
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
+		font-size: 22px;
+	}
 }
 
 .place-box {
