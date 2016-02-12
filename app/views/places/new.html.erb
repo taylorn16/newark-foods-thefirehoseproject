@@ -1,0 +1,18 @@
+<div class="container">
+	<div class="row">
+		<div class="col-sm-6 col-sm-offset-3">
+			<div class="well">
+				<h2>Submit A New Restaurant <small><span class="glyphicon glyphicon-fire" aria-hidden="true"></span><span class="glyphicon glyphicon-grain" aria-hidden="true"></span><span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span></small></h2>
+
+				<%= simple_form_for @place do |form| %>
+					<%= form.input :name %>
+					<%= form.input :address %>
+					<%= form.input :description %>
+					<hr>
+					<%= form.submit("Submit Your Restaurant", class: 'btn btn-primary pull-right') %>
+					<div class="clearfix"></div>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>

@@ -56,3 +56,6 @@ gem 'bootswatch-rails'
 
 # Pagination w/ Bootstrap Integration
 gem 'will_paginate-bootstrap'
+
+# SimpleForm
+gem 'simple_form'
