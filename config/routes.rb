@@ -1,6 +1,7 @@
 NewarkFoods::Application.routes.draw do
 
-  root 'places#index'
+  devise_for :users
+  root to: 'places#index'
 
   resources :places
 

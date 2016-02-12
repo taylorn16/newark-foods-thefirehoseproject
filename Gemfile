@@ -59,3 +59,6 @@ gem 'will_paginate-bootstrap'
 
 # SimpleForm
 gem 'simple_form'
+
+# Devise User Auth
+gem 'devise', '>= 3.2.4'
