@@ -4,7 +4,7 @@
     <div class="col-sm-8 col-xs-12">
       <% @places.each do |place| %>
       <div class="panel panel-default place-box">
-        <div class="panel-heading"><h3><%= place.name %></h3></div>
+        <div class="panel-heading"><h3><%= link_to(place.name, place_path(place)) %></h3></div>
         <div class="panel-body">
           <p><em><%= place.address %></em></p>
           <p class="lead"><%= place.description %></p>
