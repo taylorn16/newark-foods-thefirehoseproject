@@ -29,6 +29,13 @@ class PlacesController < ApplicationController
     redirect_to root_path
   end
 
+  def destroy
+    @place = Place.find(params[:id])
+    @place.destroy
+    flash[:notice] = "You have successfully deleted the place called #{@place.name}."
+    redirect_to root_path
+  end
+
   private
 
   def place_params
