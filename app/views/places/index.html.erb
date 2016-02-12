@@ -9,6 +9,12 @@
           <p><em><%= place.address %></em></p>
           <p class="lead"><%= place.description %></p>
         </div>
+        <div class="panel-footer">
+          <% if place.user.present? %>
+            <small class="pull-right">Added by <%= place.user.email %></small>
+            <div class="clearfix"></div>
+          <% end %>
+        </div>
       </div>
       <% end %>
 
@@ -22,6 +28,6 @@
   </div>
 
   <div class="row">
-    
+
   </div>
 </div>
