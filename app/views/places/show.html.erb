@@ -49,12 +49,35 @@
 
       <hr>
 
-      <h3>Add A Comment &amp; Rating</h3>
-      <%= simple_form_for(@comment, url: place_comments_path(@place)) do |form| %>
-        <%= form.input :message %>
-        <%= form.input :rating, collection: Comment::RATINGS %>
-        <%= form.submit("Add a comment", :class => 'btn btn-success') %>
-      <% end %>
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-success" data-toggle="modal" data-target="#addCommentModal">Add A Comment</button>
+
+      <!-- Modal -->
+      <div class="modal fade" id="addCommentModal" tabindex="-1" role="dialog" aria-labelledby="addCommentModal">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">Add a Comment &amp; Rating</h4>
+            </div>
+
+            <%= simple_form_for(@comment, url: place_comments_path(@place)) do |form| %>
+              <div class="modal-body">
+              <%= form.input :message %>
+              <%= form.input :rating, collection: Comment::RATINGS %>
+              </div>
+
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                <%= form.submit("Add Comment", :class => 'btn btn-default') %>
+              </div>
+            <% end %>
+
+          </div>
+        </div>
+      </div>
+
+    <br><br>
 
     </div>
     <div class="col-sm-4">
