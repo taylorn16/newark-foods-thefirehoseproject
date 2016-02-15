@@ -32,6 +32,10 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+group :development do
+  gem 'better_errors'
+end
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
@@ -68,3 +72,6 @@ gem 'geocoder'
 
 # Figaro gem for keeping our ENVs out of github
 gem 'figaro', '>= 1.0.0'
+
+# CarrierWave for image uploads
+gem 'carrierwave'

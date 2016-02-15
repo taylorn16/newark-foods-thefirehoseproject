@@ -3,9 +3,10 @@
     <div class="col-sm-8">
       <h1><%= @place.name %> <small><%= @place.address %></small></h1>
       <p class="lead"><%= @place.description %></p>
-      <hr>
+
 
       <% if @place.latitude.present? && @place.longitude.present? %>
+        <hr>
         <script>
           function initMap() {
             var myLatLng = {
@@ -91,6 +92,32 @@
         </div>
       </div>
 
+      <!-- uploadPhotoModal -->
+      <div class="modal fade" id="uploadPhotoModal" tabindex="-1" role="dialog" aria-labelledby="uploadPhotoModal">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">Upload a Photo</h4>
+            </div>
+
+            <%= simple_form_for(@photo, url: place_photos_path(@place)) do |f| %>
+              <div class="modal-body">
+              <%= f.input :photo %>
+              <%= f.input :caption %>
+              </div>
+
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                <%= f.submit("Upload Photo", :class => 'btn btn-default') %>
+              </div>
+            <% end %>
+
+          </div>
+        </div>
+      </div>
+
+
     <br><br>
 
     </div>
@@ -98,14 +125,25 @@
       <h3>Available Actions</h3>
 
       <% if current_user && current_user == @place.user %>
-        <%= link_to("Edit Place", edit_place_path(@place), :class => 'btn btn-primary') %>
+        <%= link_to(edit_place_path(@place), :class => 'btn btn-primary') do %>
+          <span class="glyphicon glyphicon-pencil"></span>&nbsp; Edit Place
+        <% end %>
         <%= link_to("Delete Place", place_path(@place), {:class => 'btn btn-danger', :method => :delete, :data => {:confirm => "Are you sure you want to delete this place?"}}) %>
+        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#uploadPhotoModal"><span class="glyphicon glyphicon-picture"></span>&nbsp; Upload a Photo</button>
       <% elsif !current_user %>
         <p>Please sign in to modify restaurant listings.</p>
       <% else %>
         <p>You don't have permission to modify this listing.</p>
       <% end %>
 
+      <hr>
+
+      <h3>Photos of <%= @place.name %></h3>
+      <% if @place.photos.present? %>
+        <% @place.photos.each do |photo| %>
+          <%= image_tag photo.photo, class: "img-responsive" %>
+        <% end %>
+      <% end %>
     </div>
   </div>
 </div>
