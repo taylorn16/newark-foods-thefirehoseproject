@@ -77,4 +77,4 @@ gem 'figaro', '>= 1.0.0'
 gem 'carrierwave'
 
 # Fog Gem for working with AWS with carrierwave
-gem 'fog'
+gem 'fog', '~> 1.3.1'
