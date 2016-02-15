@@ -40,7 +40,7 @@
               <img src="http://placehold.it/70/70" alt="Placeholder" class="media-object">
             </div>
             <div class="media-body">
-              <h4 class="media-heading"><strong><%= comment.user.email %></strong> says</h4>
+              <h4 class="media-heading"><strong><%= comment.user.email %></strong> says <span class="label label-info"><%= comment.human_rating if comment.human_rating.present? %></span></h4>
               <p><%= comment.message %></p>
             </div>
           </div>
@@ -52,7 +52,7 @@
       <h3>Add A Comment &amp; Rating</h3>
       <%= simple_form_for(@comment, url: place_comments_path(@place)) do |form| %>
         <%= form.input :message %>
-        <%= form.input :rating %>
+        <%= form.input :rating, collection: Comment::RATINGS %>
         <%= form.submit("Add a comment", :class => 'btn btn-success') %>
       <% end %>
 
