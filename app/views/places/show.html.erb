@@ -33,26 +33,41 @@
 
       <hr>
 
+      <h2>What People Are Saying</h2><br>
+
       <% unless @place.comments.empty? %>
-        <% @place.comments.each do |comment| %>
-          <div class="media">
-            <div class="media-left media-middle">
-              <img src="http://placehold.it/70/70" alt="Placeholder" class="media-object">
+        <% @place.comments.each_with_index do |comment, i| %>
+          <% if i.even? %>
+            <div class="row">
+          <% end %>
+            <div class="col-xs-12 col-sm-6">
+              <div class="media">
+                <div class="media-left media-middle">
+                  <img src="http://placehold.it/64x64" alt="Placeholder" class="media-object">
+                </div>
+                <div class="media-body">
+                  <h4 class="media-heading"><strong><%= comment.user.email %></strong> says <span class="label label-info"><%= comment.human_rating if comment.human_rating.present? %></span></h4>
+                  <p><%= comment.message %></p>
+                </div>
+              </div>
             </div>
-            <div class="media-body">
-              <h4 class="media-heading"><strong><%= comment.user.email %></strong> says <span class="label label-info"><%= comment.human_rating if comment.human_rating.present? %></span></h4>
-              <p><%= comment.message %></p>
+          <% if i.odd? %>
             </div>
-          </div>
+          <% end %>
         <% end %>
       <% end %>
 
+      <br>
+
+      <% if current_user %>
+        <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#addCommentModal"><span class="glyphicon glyphicon-plus"></span> Add A Comment</button>
+      <% end %>
+
+      <div class="clearfix"></div>
+
       <hr>
 
-      <!-- Button trigger modal -->
-      <button type="button" class="btn btn-success" data-toggle="modal" data-target="#addCommentModal">Add A Comment</button>
-
-      <!-- Modal -->
+      <!-- addCommentModal -->
       <div class="modal fade" id="addCommentModal" tabindex="-1" role="dialog" aria-labelledby="addCommentModal">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
