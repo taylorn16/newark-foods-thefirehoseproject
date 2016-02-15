@@ -62,3 +62,9 @@ gem 'simple_form'
 
 # Devise User Auth
 gem 'devise', '>= 3.2.4'
+
+# Geocoder
+gem 'geocoder'
+
+# Figaro gem for keeping our ENVs out of github
+gem 'figaro', '>= 1.0.0'
