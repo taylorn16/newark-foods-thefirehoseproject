@@ -33,7 +33,7 @@
 
       <hr>
 
-      <%= simple_form_for(@comment, url: '#') do |form| %>
+      <%= simple_form_for(@comment, url: place_comments_path(@place)) do |form| %>
         <%= form.input :message %>
         <%= form.input :rating %>
         <%= form.submit("Add a comment", :class => 'btn btn-success') %>
