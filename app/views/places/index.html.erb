@@ -4,11 +4,26 @@
     <div class="col-sm-8 col-xs-12">
       <% unless @places.empty? %>
         <% @places.each do |place| %>
+
+        <% has_images = place.photos.present? %>
+
         <div class="panel panel-default place-box">
           <div class="panel-heading"><h3><%= link_to(place.name, place_path(place)) %></h3></div>
           <div class="panel-body">
-            <p><em><%= place.address %></em></p>
-            <p class="lead"><%= place.description %></p>
+
+            <div class="row">
+              <div class="<% if has_images %> col-sm-4 <% end %> col-xs-12">
+                <%= link_to place_path(place) do %>
+                  <% if place.photos.present? %>
+                    <%= image_tag place.photos.first.photo, class: 'img-responsive img-thumbnail' %>
+                  <% end %>
+                <% end %>
+              </div>
+              <div class="<% if has_images %> col-sm-8 <% end %> col-xs-12">
+                <p><em><%= place.address %></em></p>
+                <p class="lead"><%= place.description %></p>
+              </div>
+            </div>
 
             <% if place.comments.present? %>
               <div class="media">
