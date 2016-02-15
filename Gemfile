@@ -75,3 +75,6 @@ gem 'figaro', '>= 1.0.0'
 
 # CarrierWave for image uploads
 gem 'carrierwave'
+
+# Fog Gem for working with AWS with carrierwave
+gem 'fog'
