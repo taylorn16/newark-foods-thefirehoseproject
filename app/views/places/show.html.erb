@@ -33,6 +33,23 @@
 
       <hr>
 
+      <% unless @place.comments.empty? %>
+        <% @place.comments.each do |comment| %>
+          <div class="media">
+            <div class="media-left media-middle">
+              <img src="http://placehold.it/70/70" alt="Placeholder" class="media-object">
+            </div>
+            <div class="media-body">
+              <h4 class="media-heading"><strong><%= comment.user.email %></strong> says</h4>
+              <p><%= comment.message %></p>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+
+      <hr>
+
+      <h3>Add A Comment &amp; Rating</h3>
       <%= simple_form_for(@comment, url: place_comments_path(@place)) do |form| %>
         <%= form.input :message %>
         <%= form.input :rating %>
