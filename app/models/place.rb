@@ -1,5 +1,6 @@
 class Place < ActiveRecord::Base
   belongs_to :user
+  has_many :comments
 
   # Geocoder connection
   geocoded_by :address
