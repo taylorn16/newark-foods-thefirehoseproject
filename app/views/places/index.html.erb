@@ -31,8 +31,8 @@
                   <img src="http://placehold.it/64x64" alt="Placeholder" class="media-object">
                 </div>
                 <div class="media-body">
-                  <h4 class="media-heading"><strong><%= place.comments.last.user.email %></strong> says <span class="label label-info"><%= place.comments.last.human_rating if place.comments.last.human_rating.present? %></span></h4>
-                  <p><%= place.comments.last.message %></p>
+                  <h4 class="media-heading"><strong><%= place.comments.first.user.email %></strong> says <span class="label label-info"><%= place.comments.first.human_rating if place.comments.first.human_rating.present? %></span></h4>
+                  <p><%= place.comments.first.message %></p>
                 </div>
               </div>
             <% end %>
