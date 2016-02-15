@@ -42,7 +42,7 @@
           <% end %>
             <div class="col-xs-12 col-sm-6">
               <div class="media">
-                <div class="media-left media-middle">
+                <div class="media-left media-top">
                   <img src="http://placehold.it/64x64" alt="Placeholder" class="media-object">
                 </div>
                 <div class="media-body">
@@ -51,23 +51,18 @@
                 </div>
               </div>
             </div>
-          <% if i.odd? %>
+          <% if i.odd? || (i + 1) == @place.comments.size %>
             </div>
           <% end %>
         <% end %>
       <% else %>
-
         <p class="lead">No comments yet. Add one?</p>
-
       <% end %>
-
-      <br>
 
       <% if current_user %>
-        <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#addCommentModal"><span class="glyphicon glyphicon-plus"></span> Add A Comment</button>
+        <br>
+        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#addCommentModal"><span class="glyphicon glyphicon-plus"></span> Add A Comment</button>
       <% end %>
-
-      <div class="clearfix"></div>
 
       <hr>
 
