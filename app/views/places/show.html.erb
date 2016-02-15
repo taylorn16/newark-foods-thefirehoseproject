@@ -30,7 +30,15 @@
 
         <div id="map"></div>
       <% end %>
-      
+
+      <hr>
+
+      <%= simple_form_for(@comment, url: '#') do |form| %>
+        <%= form.input :message %>
+        <%= form.input :rating %>
+        <%= form.submit("Add a comment", :class => 'btn btn-success') %>
+      <% end %>
+
     </div>
     <div class="col-sm-4">
       <h3>Available Actions</h3>
