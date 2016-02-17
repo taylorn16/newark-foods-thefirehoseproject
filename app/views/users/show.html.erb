@@ -1,15 +1,29 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-3 col-sm-offset-1 col-xs-12">
+    <div class="col-sm-8 col-sm-offset-2 col-xs-12">
 
-    </div>
-    <div class="col-sm-7 col-xs-12">
-      <h3><%= @user.email %><br> <small>Member Since <%= @user.created_at.strftime("%B %d, %Y") %></small></h3>
-      <hr>
-      <p class="lead">
-        <%= @user.comments.count %> total comments <br>
-        <%= @user.comments.where(rating: '5_stars').count %> five-star ratings
-      </p>
+      <div class="panel panel-default push-top">
+        <div class="panel-body">
+
+          <div class="row">
+              <div class="col-sm-3 col-xs-12">
+                <%= image_tag('sample_avatar.jpg', class: 'img-responsive img-circle') %>
+              </div>
+              <div class="col-sm-9 col-xs-12">
+                <h3><%= @user.email %><br> <small>Member Since <%= @user.created_at.strftime("%B %d, %Y") %></small></h3>
+                <hr>
+                <p class="lead">
+                  <%= @user.comments.count %> total comments <br>
+                  <%= @user.comments.where(rating: '5_stars').count %> five-star ratings
+                </p>
+              </div>
+          </div>
+
+
+        </div>
+      </div>
+
+
 
     </div>
   </div>
