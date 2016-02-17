@@ -80,4 +80,15 @@ NewarkFoods::Application.configure do
 
   # Set default url options for mailer for devise gem
   config.action_mailer.default_url_options = {:host => "newark-foods-nick-taylor.herokuapp.com"}
+
+  # ActionMailer Settings
+  ActionMailer::Base.smtp_settings = {
+    :port => ENV['MAILGUN_SMTP_PORT'],
+    :address => ENV['MAILGUN_SMTP_SERVER'],
+    :user_name => ENV['MAILGUN_SMTP_LOGIN'],
+    :password => ENV['MAILGUN_SMTP_PASSWORD'],
+    :domain => 'newark-foods-nick-taylor.heroku.com',
+    :authentication => 'plain'
+  }
+  ActionMailer::Base.delivery_method = :smtp
 end
