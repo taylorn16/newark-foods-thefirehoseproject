@@ -1,3 +1,39 @@
+<div id="homepage-carousel" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner" role="listbox">
+    <div class="item active">
+      <%= image_tag "donuts.jpg", class: 'img-responsive' %>
+      <div class="carousel-caption">
+        <h3>Sweet Tooth?</h3>
+        <p>Go on a quest for the most delicious donuts you've ever tasted.</p>
+      </div>
+    </div>
+    <div class="item">
+      <%= image_tag "chicken.jpg", class: 'img-responsive' %>
+      <div class="carousel-caption">
+        <h3>Nothing Like Fried Chicken</h3>
+        <p>Find the best local fry shops for some good ol' cholesterol.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Controls -->
+  <a class="left carousel-control" href="#homepage-carousel" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#homepage-carousel" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div><!--.homepage-carousel-->
+
 <div class="container">
 
   <div class="row">

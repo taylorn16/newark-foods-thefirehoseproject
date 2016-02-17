@@ -1,7 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto+Slab:400,300,700);
 
 body {
-	padding-top: 80px;
+	padding-top: 60px;
 	background: url('/assets/lightpaperfibers.png');
 }
 
@@ -32,4 +32,8 @@ body {
 
 #map {
 	height: 300px;
+}
+
+.carousel.slide {
+	margin-bottom: 35px;
 }
