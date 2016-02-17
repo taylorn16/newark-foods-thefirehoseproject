@@ -1,6 +1,7 @@
 <p>Hey There!</p>
 <p>
-  Awesome! <b>A comment has been added on your restaurant listing on Newark Foods</b>
+  Awesome! <b>A comment has been added on your restaurant listing for <%= @place.name %> on Newark Foods</b><br>
+  <%= link_to("Check it out!", place_url(@place)) %>
 </p>
 
 - Newark Foods Mailer
