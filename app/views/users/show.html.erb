@@ -19,11 +19,28 @@
               </div>
           </div>
 
-
         </div>
       </div>
 
+      <h2 class="text-center">My Comments</h2>
 
+      <hr>
+
+      <% if @user.comments.present? %>
+        <% @user.comments.each do |comment| %>
+          <div class="media push-bottom">
+            <div class="media-left media-middle">
+              <img src="http://placehold.it/64x64" alt="Placeholder" class="media-object">
+            </div>
+            <div class="media-body">
+              <h4 class="media-heading"><strong><%= link_to comment.place.name, place_path(comment.place) %> <span class="label label-info"><%= comment.human_rating if comment.human_rating.present? %></span></h4>
+              <p><%= comment.message %></p>
+            </div>
+          </div>
+        <% end %>
+      <% else %>
+        <p class="lead">You have no comments yet!</p>
+      <% end %>
 
     </div>
   </div>
