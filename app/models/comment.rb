@@ -4,6 +4,9 @@ class Comment < ActiveRecord::Base
   belongs_to :user
   belongs_to :place
 
+  # Callbacks
+  after_create :send_comment_email
+
   RATINGS = {
     "One Star" => "1_star",
     "Two Stars" => "2_stars",
@@ -14,6 +17,10 @@ class Comment < ActiveRecord::Base
 
   def human_rating
     RATINGS.invert[self.rating]
+  end
+
+  def send_comment_email
+    NotificationMailer.comment_added(self).deliver
   end
 
 end
