@@ -1,1 +1,16 @@
-<h1>User Profile Page</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3 col-sm-offset-1 col-xs-12">
+
+    </div>
+    <div class="col-sm-7 col-xs-12">
+      <h3><%= @user.email %><br> <small>Member Since <%= @user.created_at.strftime("%B %d, %Y") %></small></h3>
+      <hr>
+      <p class="lead">
+        <%= @user.comments.count %> total comments <br>
+        <%= @user.comments.where(rating: '5_stars').count %> five-star ratings
+      </p>
+
+    </div>
+  </div>
+</div>
