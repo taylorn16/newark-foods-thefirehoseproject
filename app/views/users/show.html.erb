@@ -42,6 +42,58 @@
         <p class="lead">You have no comments yet!</p>
       <% end %>
 
+      <h2 class="text-center">My Places</h2>
+
+      <hr>
+
+      <% if @user.places.present? %>
+      <% @user.places.each do |place| %>
+
+        <% has_images = place.photos.present? %>
+
+        <div class="panel panel-default place-box">
+          <div class="panel-heading"><h3><%= link_to(place.name, place_path(place)) %></h3></div>
+          <div class="panel-body">
+
+            <div class="row">
+              <div class="<% if has_images %> col-sm-4 <% end %> col-xs-12">
+                <%= link_to place_path(place) do %>
+                  <% if place.photos.present? %>
+                    <%= image_tag place.photos.first.photo, class: 'img-responsive img-thumbnail' %>
+                  <% end %>
+                <% end %>
+              </div>
+              <div class="<% if has_images %> col-sm-8 <% end %> col-xs-12">
+                <p><em><%= place.address %></em></p>
+                <p class="lead"><%= place.description %></p>
+              </div>
+            </div>
+
+            <% if place.comments.present? %>
+              <div class="media">
+                <div class="media-left media-middle">
+                  <img src="http://placehold.it/64x64" alt="Placeholder" class="media-object">
+                </div>
+                <div class="media-body">
+                  <h4 class="media-heading"><strong><%= place.comments.first.user.email %></strong> says <span class="label label-info"><%= place.comments.first.human_rating if place.comments.first.human_rating.present? %></span></h4>
+                  <p><%= place.comments.first.message %></p>
+                </div>
+              </div>
+            <% end %>
+
+          </div>
+          <div class="panel-footer">
+            <% if place.user.present? %>
+              <small class="pull-right">Added by <%= place.user.email %></small>
+              <div class="clearfix"></div>
+            <% end %>
+          </div>
+        </div>
+        <% end %>
+      <% else %>
+        <p class="lead">You haven't created any places yet!</p>
+      <% end %>
+
     </div>
   </div>
 </div>
